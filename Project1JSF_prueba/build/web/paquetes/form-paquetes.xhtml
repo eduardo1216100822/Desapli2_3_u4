@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+    <h:head>
+        <title>#{str.paqueteFormTitle}</title>
+    </h:head>
+    <h:body>
+        <ui:composition template="/templates/template.xhtml">
+            <ui:define name="contenido">
+                <h2>#{str.paqueteFormHeader}</h2>
+                <p:fieldset legend="#{str.paqueteLegendForm}">
+                <h:form>
+                    <p:inputText placeholder="#{str.paqueteNamePrompt}" 
+                                 value="#{paqueteBean.paquete.nombre}"></p:inputText>
+                    <p:commandButton value="#{str.buttonSave}" 
+                                     action="#{paqueteBean.guardar()}"></p:commandButton>
+                    <p:commandButton value="#{str.buttonDelete}" 
+                                     action="#{paqueteBean.eliminar()}"></p:commandButton>
+                    <p:commandButton value="#{str.buttonCancel}" 
+                                     action="#{paqueteBean.cancelar()}"></p:commandButton>
+                </h:form>
+                </p:fieldset>
+            </ui:define>
+        </ui:composition>
+    </h:body>
+</html>

@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+        <h:head>
+             <title>#{str.listTitleC}</title>
+        </h:head>
+
+        <h:body>
+            <ui:composition template="/templates/template.xhtml">
+                <ui:define name="contenido">
+                    <h1>#{str.listTitleC}</h1>
+                    <h:form>
+                        <p:commandButton value="#{str.buttonAdd}" 
+                                         action="#{claseBean.iniciar()}"></p:commandButton>
+                    </h:form>
+                    <p:dataTable value="#{claseBean.clases}" var="u">
+                        <p:column headerText="#{str.action}">
+                            <h:form>
+                                <p:commandButton value="#{str.buttonEdit}" action="#{claseBean.editar(u)}"></p:commandButton>
+                            </h:form>
+                        </p:column>
+                        <p:column headerText="#{str.nameHeaderC}">
+                            <p:outputLabel value="#{u.nombreClase}"></p:outputLabel>
+                        </p:column>
+                        <p:column headerText="#{str.passwordHeaderC}">
+                            <p:outputLabel value="#{u.clave}"></p:outputLabel>
+                        </p:column>
+                        <p:column headerText="#{str.paqueteNameHeader}">
+                            <p:outputLabel value="#{u.paquete.nombre}"></p:outputLabel>
+                        </p:column>
+                    </p:dataTable>
+                </ui:define>
+            </ui:composition>
+        </h:body>
+</html>
+
